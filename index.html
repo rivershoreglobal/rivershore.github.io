@@ -1,0 +1,890 @@
+the UI is disjointed, create a more unified experience
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ian Crowther — Data & AI Leader (ex-Node.js engineer)</title>
+  <meta name="description" content="Ian Crowther — experienced data leader with a software engineering background in Node.js. Building data platforms, teams, and strategy." />
+  <meta name="author" content="Ian Crowther" />
+  <link rel="icon" href="favicon.ico" />
+
+  <!-- Basic, dependency-free CSS for responsive layout -->
+  <style>
+    :root {
+      /* Color palette */
+      --primary: #24c18d;
+      --primary-light: #e6f7f1;
+      --primary-dark: #1e9c73;
+      --text: #1f2d3d;
+      --text-light: #4a5568;
+      --background: #f5f7f9;
+      --surface: #ffffff;
+      --surface-alt: #f0f4f8;
+      --border: #d9e2ec;
+      --muted: #7b8a9e;
+      
+      /* Spacing */
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 24px;
+      --space-6: 32px;
+      --space-8: 48px;
+      --space-10: 64px;
+      
+      /* Typography */
+      --text-xs: 0.75rem;
+      --text-sm: 0.875rem;
+      --text-base: 1rem;
+      --text-lg: 1.125rem;
+      --text-xl: 1.25rem;
+      --text-2xl: 1.5rem;
+      --text-3xl: 1.875rem;
+      --text-4xl: 2.25rem;
+      --text-5xl: 3rem;
+      
+      /* Effects */
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --radius-sm: 4px;
+      --radius: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-full: 9999px;
+    }
+
+    @media (max-width: 600px) {
+      :root {
+        --space-1: 0.25rem;
+        --space-2: 0.5rem;
+        --space-3: 0.75rem;
+        --space-4: 1rem;
+        --space-5: 1.25rem;
+        --space-6: 1.5rem;
+        --space-8: 2rem;
+        --space-10: 2.5rem;
+        --space-12: 3rem;
+        --radius-sm: 2px;
+        --radius: 4px;
+        --radius-md: 6px;
+        --radius-lg: 8px;
+        --radius-xl: 12px;
+      }
+      
+      h1 { font-size: var(--text-3xl); }
+      h2 { font-size: var(--text-2xl); }
+      h3 { font-size: var(--text-xl); }
+      
+      .hero .title { 
+        font-size: var(--text-3xl); 
+        line-height: 1.2; 
+      }
+      
+      .logos .logo-card {
+        width: 72px;
+        height: 72px;
+      }
+      
+      .logos .logo-card img {
+        max-width: 40px;
+        max-height: 40px;
+      }
+    }
+
+    /* Reset & base */
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { 
+      background-color: var(--background);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    .wrap { 
+      max-width: 1080px; 
+      margin: 0 auto; 
+      padding: var(--space-6) var(--space-4);
+    }
+
+    /* Header */
+    header.site { 
+      position: sticky; 
+      top: 0; 
+      z-index: 20; 
+      backdrop-filter: blur(6px); 
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--border);
+      padding: var(--space-3) 0;
+    }
+    .nav { 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      gap: var(--space-4);
+    }
+    .brand { 
+      display: flex; 
+      align-items: center; 
+      gap: var(--space-3);
+    }
+    .logo { 
+      width: 32px; 
+      height: 32px; 
+      border-radius: var(--radius); 
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      box-shadow: var(--shadow);
+    }
+    .brand h1 { 
+      font-size: var(--text-lg); 
+      margin: 0; 
+      font-weight: 600;
+      color: var(--text);
+    }
+    nav ul { 
+      list-style: none; 
+      padding: 0; 
+      margin: 0; 
+      display: flex; 
+      gap: var(--space-3); 
+      flex-wrap: wrap; 
+    }
+    nav a { 
+      padding: var(--space-2) var(--space-3); 
+      border-radius: var(--radius); 
+      color: var(--text-light);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    nav a:hover { 
+      background: var(--surface-alt); 
+      color: var(--primary-dark);
+      text-decoration: none; 
+    }
+
+    /* Hero */
+    .hero { 
+      width: 100%;
+      padding: var(--space-10) 0;
+      position: relative;
+      background: linear-gradient(to bottom, var(--surface) 0%, var(--background) 100%);
+    }
+    .hero-content {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+    .hero-text {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--space-8);
+      align-items: start;
+      width: 100%;
+    }
+    
+    @media (max-width: 768px) {
+      .hero-text {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+      }
+      .profile-image {
+        margin: 0 auto;
+      }
+    }
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .hero .title { 
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.1;
+      margin: 0 0 var(--space-4);
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .hero .kicker { 
+      color: var(--text-light); 
+      margin: 0 0 var(--space-5); 
+      font-size: var(--text-xl);
+      line-height: 1.5;
+      max-width: 90%;
+    }
+    .hero .cta-row { 
+      display: flex; 
+      gap: 12px; 
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .profile-image {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      aspect-ratio: 1;
+      max-width: 280px;
+      width: 100%;
+      margin-left: auto;
+      justify-self: end;
+    }
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .profile-image:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+    .profile-image:hover img {
+      transform: scale(1.03);
+    }
+    .btn { 
+      display: inline-flex; 
+      align-items: center; 
+      justify-content: center;
+      gap: var(--space-2); 
+      padding: var(--space-3) var(--space-5); 
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--primary);
+      background: var(--primary);
+      color: white;
+      font-weight: 600; 
+      font-size: var(--text-sm);
+      box-shadow: var(--shadow);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    
+    .btn.primary { 
+      background: var(--primary);
+      color: white;
+    }
+    
+    .btn.secondary {
+      background: transparent;
+      color: var(--primary);
+    }
+    
+    .btn:hover { 
+      transform: translateY(-2px); 
+      box-shadow: var(--shadow-md);
+      text-decoration: none; 
+    }
+    
+    .btn:active {
+      transform: translateY(0);
+    }
+    
+    .cta-row {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      box-shadow: var(--shadow);
+      transition: all 0.2s ease;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    
+    #about .card {
+      padding: var(--space-5) var(--space-6);
+    }
+    
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .card.skill {
+      border-top: 4px solid var(--primary);
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .card .meta {
+      color: var(--muted);
+      font-size: var(--text-sm);
+      margin-bottom: var(--space-4);
+    }
+    .pill { 
+      display: inline-block;
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-full);
+      border: 1px solid var(--primary-light);
+      background: rgba(36, 193, 141, 0.1);
+      color: var(--primary-dark);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      text-align: center;
+      width: auto;
+      margin: 0 0 var(--space-4);
+      box-sizing: border-box;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text);
+    }
+    
+    h2 {
+      font-size: var(--text-3xl);
+      margin: 0 0 var(--space-4);
+    }
+    
+    h3 {
+      font-size: var(--text-xl);
+      margin: 0 0 var(--space-3);
+      color: var(--text);
+    }
+    
+    p {
+      margin: 0 0 var(--space-4);
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+    
+    /* Sections */
+    section { 
+      padding: var(--space-8) 0;
+    }
+    
+    /* Removed alternating background colors for a cleaner look */
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+    .col-12 { grid-column: span 12; }
+    .col-6 { grid-column: span 6; }
+    .col-4 { grid-column: span 4; }
+
+    /* Skill buckets */
+    .skill { display: grid; gap: 8px; }
+    .skill h3 { margin: 0; font-size: 16px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: auto;
+    }
+    
+    .tags .tag {
+      display: inline-block;
+      background: var(--surface);
+      color: var(--text);
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    
+    .tags .tag:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    /* Experience */
+    .timeline { 
+      display: grid; 
+      gap: var(--space-3); 
+    }
+    
+    .role { 
+      display: grid; 
+      gap: var(--space-2); 
+      padding: var(--space-4); 
+      border-left: 3px solid var(--primary); 
+      background: var(--surface);
+      border-radius: var(--radius);
+      transition: transform 0.2s ease;
+    }
+    
+    .role:hover {
+      transform: translateX(4px);
+    }
+    
+    .role .meta { 
+      color: var(--muted); 
+      font-size: var(--text-sm);
+      display: flex;
+      gap: var(--space-2);
+      align-items: center;
+    }
+    
+    .role .meta span {
+      display: inline-flex;
+      align-items: center;
+    }
+    
+    .role .meta span:not(:last-child)::after {
+      content: '·';
+      margin: 0 var(--space-2);
+      color: var(--border);
+    }
+
+    /* Projects (Node heritage) */
+    .logos { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: var(--space-6); 
+      justify-content: center; 
+      align-items: center; 
+      margin: var(--space-6) 0; 
+    }
+    
+    .logos a { 
+      display: block; 
+      transition: transform 0.2s ease;
+      opacity: 0.8;
+    }
+    
+    .logos a:hover { 
+      transform: translateY(-4px); 
+      opacity: 1;
+      text-decoration: none; 
+    }
+    
+    .logo-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      box-shadow: var(--shadow);
+      transition: all 0.2s ease;
+      width: 96px;
+      height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .logo-card img {
+      max-width: 64px;
+      max-height: 64px;
+      width: auto;
+      height: auto;
+    }
+    .logos .logo-card { 
+      width: 96px; 
+      height: 96px; 
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      padding: var(--space-3);
+      transition: all 0.2s ease;
+    }
+    
+    .logos .logo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .logos img {
+      max-width: 100%;
+      height: auto;
+      filter: grayscale(20%) contrast(90%) brightness(0.9);
+      transition: all 0.3s ease;
+    }
+    .logos a:hover img {
+      filter: none;
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer { border-top: 1px solid #1d242b; color: var(--muted); padding: 28px 0 40px; font-size: 14px; text-align: center; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+      
+      .col-4, .col-6 {
+        grid-column: span 1;
+      }
+      
+      .hero {
+        padding: var(--space-8) 0;
+      }
+      
+      .hero .hero-text {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+      }
+      
+      .hero .kicker {
+        font-size: var(--text-lg);
+        max-width: 100%;
+      }
+      
+      .profile-image {
+        margin: 0 auto;
+        max-width: 240px;
+      }
+      
+      .cta-row {
+        flex-direction: column;
+        gap: var(--space-2) !important;
+      }
+      
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .logos {
+        gap: var(--space-4);
+      }
+      
+      .logos .logo-card {
+        width: 80px;
+        height: 80px;
+      }
+      
+      .logos .logo-card img {
+        max-width: 48px;
+        max-height: 48px;
+      }
+    }
+  </style>
+
+  <!-- Structured data for rich snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ian Crowther",
+    "jobTitle": "Director of Data / Head of Data Engineering",
+    "url": "https://rivershore.co.uk",
+    "email": "mailto:ian@rivershore.co.uk",
+    "sameAs": [
+      "https://www.linkedin.com/in/iancrowther",
+      "https://github.com/iancrowther"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Ian Crowther</h1>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills &amp; Focus Areas</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Node.js Community</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <p class="pill">Data & AI Leadership • Platform & Data Engineering • AI & ML Enablement • Global Team Building</p>
+        <div class="hero-text">
+          <div class="hero-left">
+            <h2 class="title">Maturing data organisations with AI-enabled execution</h2>
+<p class="kicker">I build modern, governed data platforms and embed AI tooling to accelerate teams, cut cycle time, and unlock more impact.</p>
+
+            <div class="cta-row">
+              <a class="btn primary" href="#contact">Get in touch</a>
+              <a class="btn" href="#skills">See my focus areas</a>
+            </div>
+          </div>
+          <div class="profile-image">
+            <img src="img/profile.png" alt="Ian Crowther" width="280" height="280" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="grid">
+        <div class="col-6">
+          <div class="card">
+            <h2>About</h2>
+            <p>I’m Ian Crowther, a Data & AI leader who grew from an accomplished Node.js engineer into a strategist and team builder. I’ve led modernisation programmes, unified data across domains, and embedded data-as-a-product thinking so teams can deliver trusted insights and AI applications quickly and safely.</p>
+            <p><strong>AI for workforce efficiency:</strong> I deploy practical AI tooling (LLM copilots, semantic layers, retrieval patterns, governed access) so engineers, analysts, and product teams deliver faster with higher quality—safely and compliantly.</p>
+
+            <p>I’ve orchestrated single sources of truth, fostered collaboration between data producers and consumers, and built forums to manage cross-domain dependencies effectively. My leadership spans globally distributed teams across Portugal, Romania, Poland, Ukraine, UK, USA, and Brazil.</p>
+            <p>Today, I focus on:</p>
+            <ul>
+              <li><strong>Data Foundations</strong> – finops, platform, pipelines, quality, lineage, governance, and catalog.</li>
+              <li><strong>Data Pillars</strong> – dataops, data platform, data engineering, analytics engineering, feature stores, machine learning, and generative AI.</li>
+              <li><strong>Enablement</strong> – self-service access, semantic layers, and AI-ready design.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card">
+            <h2>Key Achievements</h2>
+            <ul style="margin:0; padding-left:18px">
+              <li>Authored a comprehensive data governance framework establishing compliance, access control, and data ownership standards</li>
+              <li>Developed a career framework to provide clear progression pathways and level definitions across engineering roles</li>
+              <li>Established and led a dedicated data support team to improve platform reliability and user experience</li>
+              <li>Managed distributed teams across Portugal, Romania, Poland, Ukraine, UK, USA, and Brazil</li>
+              <li>Orchestrated the creation of a single source of truth for critical business metrics</li>
+              <li>Facilitated cross-functional collaboration between data producers and consumers to improve prioritization</li>
+              <li>Created a program dependency forum to effectively manage cross-domain initiatives and reduce delays</li>
+              <li>Introduced data quality metrics and monitoring to ensure data reliability</li>
+              <li>Implemented Infrastructure as Code (IaC) principles across data platforms</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Expertise</h2>
+      <div class="grid">
+        <div class="col-4">
+          <div class="card skill">
+            <h3>Leadership</h3>
+            <p class="meta">Vision, outcomes, and operating models that scale globally.</p>
+            <div class="tags">
+              <span class="tag">Org Design</span>
+              <span class="tag">Coaching</span>
+              <span class="tag">Global Leadership</span>
+              <span class="tag">Stakeholder Alignment</span>
+              <span class="tag">KPIs & SLAs</span>
+              <span class="tag">Governance</span>
+              <span class="tag">SOX Change</span>
+              <span class="tag">FinOps Culture</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card skill">
+            <h3>Strategy</h3>
+            <p class="meta">Roadmaps that mature the data org and operationalise AI for measurable efficiency gains.</p>
+
+            <div class="tags">
+              <span class="tag">Modernisation</span>
+  <span class="tag">Maturity & Accelerators</span>
+  <span class="tag">Governance & Compliance</span>
+  <span class="tag">DataOps</span>
+  <span class="tag">FinOps & TCO</span>
+  <span class="tag">AI Enablement</span>
+  <span class="tag">Coalition Building</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card skill">
+            <h3>People</h3>
+            <p class="meta">Scaling teams, building high-trust cultures, and creating clear growth paths.</p>
+            <div class="tags">
+              <span class="tag">Hiring</span>
+              <span class="tag">Org Design</span>
+              <span class="tag">Communities</span>
+              <span class="tag">Influence</span>
+              <span class="tag">Psych Safety</span>
+              <span class="tag">Distributed Teams</span>
+              <span class="tag">Performance</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card skill">
+            <h3>Data</h3>
+            <p class="meta">Governed, observable, AI-ready, from ingestion to insight</p>
+            <div class="tags">
+              <span class="tag">Databricks</span>
+              <span class="tag">Delta</span>
+              <span class="tag">PySpark</span>
+              <span class="tag">Airflow</span>
+              <span class="tag">dbt</span>
+              <span class="tag">Semantic Layers</span>
+              <span class="tag">Data Product</span>
+              <span class="tag">Unity Catalog</span>
+              <span class="tag">Alation</span>
+              <span class="tag">Observability</span>
+              <span class="tag">Monte Carlo</span>
+              <span class="tag">Databand</span>
+              <span class="tag">Datafold</span>
+              <span class="tag">Buildkite</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card skill">
+            <h3>Software</h3>
+            <p class="meta">Shipping dependable systems with modern engineering and cloud-native practices.</p>
+            <div class="tags">
+              <span class="tag">Node.js & JavaScript</span>
+              <span class="tag">Vue.js</span>
+              <span class="tag">API platforms</span>
+              <span class="tag">CI/CD</span>
+              <span class="tag">GitHub Actions</span>
+              <span class="tag">Testing</span>
+              <span class="tag">Observability</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card skill">
+            <h3>DevOps</h3>
+            <p class="meta">Automation, reliability, and scalable infrastructure.</p>
+            <div class="tags">
+              <span class="tag">Kubernetes</span>
+              <span class="tag">Terraform</span>
+              <span class="tag">Docker</span>
+              <span class="tag">AWS • GCP • Azure</span>
+              <span class="tag">Release Mgmt</span>
+              <span class="tag">Incident Response</span>
+              <span class="tag">Datadog</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience (concise) -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="role">
+          <strong>Global Director of Data Solutions — Nearform</strong>
+          <div class="meta">2024–2025 • Global consultancy • Data & AI practice leadership</div>
+          <p>Built propositions (Data Foundations, Pillars, discovery accelerators), led client programmes across sectors, embedded governance and FinOps, and positioned platforms for AI capabilities.</p>
+        </div>
+        <div class="role">
+          <strong>Director of Data Engineering — FanDuel</strong>
+          <div class="meta">2021–2023 • Hyper‑growth • Large‑scale data platform</div>
+          <p>Scaled the team to 100+ engineers, migrated to Delta/dbt, improved reliability and time‑to‑insight, and delivered SOX‑compliant practices and cost transparency.</p>
+        </div>
+        <div class="role">
+          <strong>Senior Software Engineer / Engineering Leader</strong>
+          <div class="meta">Earlier • Node.js ecosystem (LNUG, NodeSchool, NodeConf), product & platform roles</div>
+          <p>Node.js practitioner and community contributor. Delivered services, APIs, and cloud infrastructure; coached teams, and championed modern engineering craft.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Node.js Community</h2>
+      <p class="kicker">A selection of communities and events I've supported or been involved with over the years.</p>
+      <div class="logos">
+        <a href="http://nodejs.org" title="Node.js" target="_blank" rel="noopener">
+          <div class="logo-card"><img src="img/nodejs.png" alt="Node.js" width="64"></div>
+        </a>
+        <a href="http://nodeschool.io/international-day" title="Nodeschool International Day" target="_blank" rel="noopener">
+          <div class="logo-card"><img src="img/nodeschool-international.png" alt="Nodeschool International" width="64"></div>
+        </a>
+        <a href="http://lnug.org" title="London Node User Group" target="_blank" rel="noopener">
+          <div class="logo-card"><img src="img/lnug.png" alt="LNUG" width="64"></div>
+        </a>
+        <a href="http://london.nodesconf.com" title="NodeConf London" target="_blank" rel="noopener">
+          <div class="logo-card"><img src="img/nodeconf-london.png" alt="NodeConf London" width="64"></div>
+        </a>
+        <a href="http://nodeschool.io/london" title="Nodeschool London" target="_blank" rel="noopener">
+          <div class="logo-card"><img src="img/nodeschool-london.png" alt="Nodeschool London" width="64"></div>
+        </a>
+        <a href="http://nottsjs.org" title="NottsJS" target="_blank" rel="noopener">
+          <div class="logo-card"><img src="img/nottsjs.png" alt="NottsJS" width="64"></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="grid">
+        <div class="col-6">
+          <div class="card">
+            <h2>Let’s talk</h2>
+            <p>Ready to mature your data organisation and boost team efficiency with AI? Let’s make it real.</p>
+
+
+            <p><strong>Email:</strong> <a href="mailto:ian@rivershore.co.uk">ian@rivershore.co.uk</a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/iancrowther" target="_blank" rel="noopener">linkedin.com/in/iancrowther</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/iancrowther" target="_blank" rel="noopener">github.com/iancrowther</a></p>
+          </div>
+        </div>
+        <div class="col-6">
+        <div class="card">
+            <h2>My Impact</h2>
+            <p>I partner with organisations as a <strong>fractional, contract, or permanent leader</strong> to:</p>
+            <ul class="impact">
+              <li><strong>Modernise the estate</strong> into a governed, product-led platform that’s <span class="hl">AI-ready</span>.</li>
+              <li><strong>Scale teams with AI</strong>—copilots, automation, and quality guardrails to <span class="hl">ship faster with fewer defects</span>.</li>
+              <li><strong>Lift productivity</strong> via <span class="hl">Data Foundations</span>, <span class="hl">DataOps</span>, and <span class="hl">FinOps</span>, turning efficiency into business outcomes.</li>
+            </ul>
+            
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>© <span id="y"></span> Ian Crowther.</p>
+    </div>
+  </footer>
+
+  <script>
+    // tiny enhancement: set copyright year & smooth-scroll for in-page links
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+  </script>
+</body>
+</html>
