@@ -1,5 +1,3 @@
-the UI is disjointed, create a more unified experience
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -589,6 +587,19 @@ the UI is disjointed, create a more unified experience
         max-height: 48px;
       }
     }
+
+    .availability{
+  margin-top:8px; font-size:0.9rem; color:var(--text-light);
+}
+.impact-badges{
+  display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;
+}
+.impact-badges .badge{
+  display:inline-block; padding:6px 10px; border-radius:999px;
+  background: var(--surface-alt); border:1px solid var(--border);
+  font-size:0.78rem; color:var(--text-light); white-space:nowrap;
+}
+
   </style>
 
   <!-- Structured data for rich snippets -->
@@ -640,6 +651,19 @@ the UI is disjointed, create a more unified experience
               <a class="btn primary" href="#contact">Get in touch</a>
               <a class="btn" href="#skills">See my focus areas</a>
             </div>
+
+            <p class="availability" aria-label="Engagement types">
+              Open to <strong>Fractional</strong> • <strong>Contract</strong> • <strong>Permanent</strong>
+            </p>
+            
+            <!-- <div class="impact-badges" aria-label="Outcome metrics">
+              <span class="badge">12 → 110+ team</span>
+              <span class="badge">−20% incidents</span>
+              <span class="badge">~95% SLA</span>
+              <span class="badge">4h → 10m freshness</span>
+              <span class="badge">+$8–10m productivity</span>
+            </div> -->
+            
           </div>
           <div class="profile-image">
             <img src="img/profile.png" alt="Ian Crowther" width="280" height="280" loading="lazy">
@@ -669,17 +693,15 @@ the UI is disjointed, create a more unified experience
         <div class="col-6">
           <div class="card">
             <h2>Key Achievements</h2>
-            <ul style="margin:0; padding-left:18px">
-              <li>Authored a comprehensive data governance framework establishing compliance, access control, and data ownership standards</li>
-              <li>Developed a career framework to provide clear progression pathways and level definitions across engineering roles</li>
-              <li>Established and led a dedicated data support team to improve platform reliability and user experience</li>
-              <li>Managed distributed teams across Portugal, Romania, Poland, Ukraine, UK, USA, and Brazil</li>
-              <li>Orchestrated the creation of a single source of truth for critical business metrics</li>
-              <li>Facilitated cross-functional collaboration between data producers and consumers to improve prioritization</li>
-              <li>Created a program dependency forum to effectively manage cross-domain initiatives and reduce delays</li>
-              <li>Introduced data quality metrics and monitoring to ensure data reliability</li>
-              <li>Implemented Infrastructure as Code (IaC) principles across data platforms</li>
+            <ul>
+              <li><strong>Scaled the org 12 → 110+ engineers</strong> while improving reliability and delivery velocity.</li>
+              <li><strong>AI enablement for teams</strong> — LLM-assisted query generation and automation that <em>cut cycle time</em> and <em>reduced defects</em>.</li>
+              <li><strong>Single Source of Truth</strong> across domains; <em>95% freshness</em> (4h → 10m) to support near-real-time decisions.</li>
+              <li><strong>SOX-compliant change & incident frameworks</strong>, ~<em>20% fewer incidents</em> and a <em>50% churn reduction</em>.</li>
+              <li><strong>dbt + Delta modernisation</strong> with quality guardrails; ~<em>40% faster pipelines</em> and <em>100% test coverage</em>.</li>
+              <li><strong>FinOps transparency</strong> and platform optimisation, delivering ~<em>$8–10m productivity gains</em>.</li>
             </ul>
+            
           </div>
         </div>
       </div>
@@ -847,10 +869,13 @@ the UI is disjointed, create a more unified experience
             <h2>Let’s talk</h2>
             <p>Ready to mature your data organisation and boost team efficiency with AI? Let’s make it real.</p>
 
+            
+
 
             <p><strong>Email:</strong> <a href="mailto:ian@rivershore.co.uk">ian@rivershore.co.uk</a></p>
             <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/iancrowther" target="_blank" rel="noopener">linkedin.com/in/iancrowther</a></p>
             <p><strong>GitHub:</strong> <a href="https://github.com/iancrowther" target="_blank" rel="noopener">github.com/iancrowther</a></p>
+            <p><a class="btn secondary" href="mailto:ian@rivershore.co.uk?subject=Intro%20call">Book an intro call</a></p>
           </div>
         </div>
         <div class="col-6">
@@ -859,8 +884,9 @@ the UI is disjointed, create a more unified experience
             <p>I partner with organisations as a <strong>fractional, contract, or permanent leader</strong> to:</p>
             <ul class="impact">
               <li><strong>Modernise the estate</strong> into a governed, product-led platform that’s <span class="hl">AI-ready</span>.</li>
-              <li><strong>Scale teams with AI</strong>—copilots, automation, and quality guardrails to <span class="hl">ship faster with fewer defects</span>.</li>
-              <li><strong>Lift productivity</strong> via <span class="hl">Data Foundations</span>, <span class="hl">DataOps</span>, and <span class="hl">FinOps</span>, turning efficiency into business outcomes.</li>
+              <li><strong>Scale teams with AI</strong> — copilots, automation, and guardrails to <span class="hl">ship faster with fewer defects</span>.</li>
+              <li><strong>Lift productivity</strong> via <span class="hl">Data Foundations</span>, <span class="hl">DataOps</span>, and <span class="hl">FinOps</span>, converting efficiency into measurable outcomes.</li>
+              <li><strong>Operationalise analytics & ML</strong> with semantic layers and governed access so <span class="hl">workflows accelerate safely</span>.</li>
             </ul>
             
 
