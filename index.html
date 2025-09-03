@@ -8,7 +8,7 @@
   <!-- Preload critical resources -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
   
   <!-- Critical CSS for above-the-fold content -->
@@ -79,21 +79,15 @@
       font-display: swap;
     }
     
-    .wrap {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 var(--space-4);
-      width: 100%;
-    }
-    
     /*
      * #LAYOUT
      * Page-level layout containers and grid system
      */
     .wrap {
-      max-width: 1200px;
+      max-width: 1080px;
       margin: 0 auto;
       padding: 0 var(--space-4);
+      width: 100%;
     }
     
     .grid {
@@ -232,7 +226,6 @@
       width: 100%;
       padding: var(--space-6) 0;
       position: relative;
-      background: linear-gradient(to bottom, #ffffff 0%, #f6f8fb 100%);
     }
     .hero-content { max-width: 1080px; margin: 0 auto; padding: 0 var(--space-5); display: flex; flex-direction: column; gap: var(--space-5); }
     .pill {
@@ -260,33 +253,27 @@
       position: relative;
       border-radius: var(--radius-xl);
       overflow: hidden;
-      box-shadow: none;
-      border: 3px solid transparent;
-      aspect-ratio: 1;
-      max-width: 320px;
+      transition: transform 0.3s ease;
+      background: white;
       width: 100%;
-      margin-left: auto;
-      justify-self: end;
-      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      transform-style: preserve-3d;
-      will-change: transform, box-shadow, border-color;
+      max-width: 340px;
+      aspect-ratio: 3/4;
+      margin: 0 auto;
     }
     
     .profile-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.3s ease;
     }
     
     .profile-image:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-      border-color: var(--primary-light);
+      transform: translateY(-2px);
     }
     
     .profile-image:hover img {
-      transform: scale(1.05);
+      transform: scale(1.02);
     }
 
     /* =========================
@@ -468,7 +455,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
   
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://rivershore.co.uk/" />
 
   <!-- Structured data for rich snippets -->
   <script type="application/ld+json">
@@ -526,10 +514,7 @@
           </div>
 
           <div class="profile-image">
-            <figure class="profile-image-container">
-              <img src="img/profile.png" alt="Portrait of Ian Crowther" class="profile-image" loading="lazy">
-              <figcaption class="sr-only">Ian Crowther, Data & AI Leader</figcaption>
-            </figure>
+            <img src="img/profile.png" alt="Portrait of Ian Crowther" loading="lazy">
           </div>
         </div>
       </div>
@@ -541,53 +526,38 @@
         <div class="col-6">
           <div class="card">
             <h2>About</h2>
+<p><strong>Engineer-turned data leader delivering <span>60% faster cycles</span> and <span>30% lower cost</span>.</strong></p>
 
-            <p>
-              <strong>Engineer turned data leader delivering
-              <span class="hl">60% faster cycles</span>, <span class="hl">30% lower cost</span>.</strong>
-            </p>
+<p>I’m Ian Crowther, a Data &amp; AI leader who grew from Node.js engineering into strategy and team building. I modernise legacy estates into governed, product-led, <span>AI-ready</span> platforms—unifying data across domains and embedding Data-as-a-Product so teams deliver trusted insights and AI quickly and safely. I scale teams and operating models to compound productivity gains. I’ve built single sources of truth, aligned data producers and consumers, and established mechanisms to manage cross-domain dependencies across globally distributed teams.</p>
 
-            <p>I’m Ian Crowther, a Data &amp; AI leader who grew from Node.js engineering into strategy and team building. I modernise legacy estates, unify data across domains, and embed data-as-a-product so teams ship trusted insights and AI applications quickly and safely.</p>
+<p>I build trust in data by ensuring quality at source (100% test coverage for critical pipelines and clear ownership); enforcing SOX-compliant change and incident processes (≈20% fewer incidents); improving reliability through monitoring, alerting and SLOs that enhance MTTD/MTTR and reduce escalations; and providing governed access with role-based controls, lineage and catalog for auditability and safe self-service.</p>
 
-            <p>I deploy practical AI so engineers, analysts, and product teams <em>ship faster with fewer defects</em> while staying compliant.</p>
+<p><strong>Where I drive outcomes</strong></p>
+<ul>
+  <li><strong>Data Foundations</strong> — FinOps, platform, pipelines, quality, lineage, governance, catalog.</li>
+  <li><strong>Data Pillars</strong> — DataOps, data platform, data engineering, analytics engineering, feature stores, ML &amp; generative AI.</li>
+  <li><strong>Enablement</strong> — Self-service access, semantic layers, AI-ready design.</li>
+</ul>
 
-            <p>I’ve built single sources of truth, aligned data producers and consumers, and set up mechanisms to manage cross-domain dependencies across globally distributed teams.</p>
-
-            <p><strong>Including, but not limited to:</strong></p>
-            <ul>
-              <li><strong>Data Foundations</strong> — finops, platform, pipelines, quality, lineage, governance, catalog.</li>
-              <li><strong>Data Pillars</strong> — dataops, data platform, data engineering, analytics engineering, feature stores, ML &amp; generative AI.</li>
-              <li><strong>Enablement</strong> — self-service access, semantic layers, AI-ready design.</li>
-            </ul>
           </div>
         </div>
 
         <div class="col-6">
           <div class="card">
-            <!-- <h2>Key Achievements</h2>
-            <ul>
-              <li><strong>Scaled the org 12 → 110+ engineers</strong> while improving reliability and delivery velocity.</li>
-              <li><strong>AI enablement for teams</strong> LLM-assisted model and query generation automation that <em>cut cycle time</em> and <em>reduced defects</em>.</li>
-              <li><strong>Single Source of Truth</strong> across domains; <em>95% freshness</em> (4h → 10m) to support near-real-time decisions.</li>
-              <li><strong>SOX-compliant change & incident frameworks</strong>, ~<em>20% fewer incidents</em> and a <em>50% churn reduction</em>.</li>
-              <li><strong>dbt + Delta modernisation</strong> with quality guardrails; ~<em>40% faster pipelines</em> and <em>100% test coverage</em>.</li>
-              <li><strong>FinOps transparency</strong> and platform optimisation, delivering ~<em>$8–10m productivity gains</em>.</li>
-            </ul> -->
-
-            <h2>Outcomes</h2>
+            <h2>Outcomes Delivered</h2>
             <ul>
               <li>
-                <strong>Hyper-growth</strong> — Scaled the organisation from <span class="hl">12 → 110+</span> in four years; authored the career framework (levels, competencies, progression criteria) and served as a mentor so people knew <em>how</em> to progress, driving internal promotions and strengthening culture &amp; retention.
+                <strong>Hyper-growth</strong> — Scaled the organisation from <span>12 → 110+</span> in four years; authored the career framework (levels, competencies, progression criteria) and served as a mentor so people knew <em>how</em> to progress, driving internal promotions and strengthening culture &amp; retention.
 ,               </li>
               
               <li>
                 <strong>Data Estate Modernisation</strong> — Migrated Python pipelines to Databricks, cutting
-                <span class="hl">cycle time 60%</span> and <span class="hl">infrastructure cost 30%</span>, enabling faster delivery and a lower TCO.
+                <span>cycle time 60%</span> and <span>infrastructure cost 30%</span>, enabling faster delivery and a lower TCO.
               </li>
 
               <li>
                 <strong>Platform Reliability</strong> — Implemented end-to-end monitoring and alerting with clear SLOs/SLAs, improving
-                <span class="hl">MTTD/MTTR</span> with ~<span class="hl">20% fewer incidents</span>; authored the support &amp; incident
+                <span>MTTD/MTTR</span> with ~<span>20% fewer incidents</span>; authored the support &amp; incident
                 management process to standardise response and recovery.
               </li>
 
@@ -597,12 +567,12 @@
               </li>
 
               <li>
-                <strong>Data as a Product</strong> — Delivered a Single Source of Truth across domains, driving ~<span class="hl">$8–10m productivity gains</span> by eliminating analyst-side rework (no double-handling of transformations) and removing duplicate definitions, resulting in a <span class="hl">40% reduction</span> in support/reporting overhead.
+                <strong>Data as a Product</strong> — Delivered a Single Source of Truth across domains, driving ~<span>$8–10m productivity gains</span> by eliminating analyst-side rework (no double-handling of transformations) and removing duplicate definitions, resulting in a <span>40% reduction</span> in support/reporting overhead.
               </li>
 
               <li>
                 <strong>AI Enablement</strong> — LLM-assisted model &amp; query generation plus quality guardrails delivered
-                ~<span class="hl">40% faster pipelines</span>, fewer defects, and <span class="hl">100% test coverage</span>.
+                ~<span>40% faster pipelines</span>, fewer defects, and <span>100% test coverage</span>.
               </li>
 
               <li>
@@ -648,8 +618,16 @@
             <h3>People</h3>
             <p class="meta">Scaling teams, building high-trust cultures, and creating clear growth paths.</p>
             <div class="tags">
-              <span class="tag">Hiring</span><span class="tag">Org Design</span><span class="tag">Communities</span>
-              <span class="tag">Influence</span><span class="tag">Psych Safety</span><span class="tag">Distributed Teams</span><span class="tag">Performance</span>
+              <span class="tag">Hiring</span>
+              <span class="tag">Mentoring</span>
+              <span class="tag">Career Frameworks</span>
+    <span class="tag">Org Design</span>
+    <span class="tag">Upskilling</span>
+    <!-- <span class="tag">Influence</span> -->
+    <span class="tag">Psychological Safety</span>
+    <span class="tag">Distributed Teams</span>
+    <!-- <span class="tag">Succession Planning</span> -->
+    <span class="tag">Performance</span>
             </div>
           </div>
         </div>
@@ -659,9 +637,18 @@
             <h3>Data</h3>
             <p class="meta">Governed, observable, AI-ready, from ingestion to insight</p>
             <div class="tags">
-              <span class="tag">Databricks</span><span class="tag">Delta</span><span class="tag">PySpark</span><span class="tag">Airflow</span>
-              <span class="tag">dbt</span><span class="tag">Semantic Layers</span><span class="tag">Data Product</span><span class="tag">Unity Catalog</span>
-              <span class="tag">Alation</span><span class="tag">Observability</span><span class="tag">Monte Carlo</span><span class="tag">Databand</span><span class="tag">Datafold</span><span class="tag">Buildkite</span>
+              
+              <span class="tag">Airflow</span>
+    <span class="tag">Databricks</span>
+    <span class="tag">Delta</span>
+    <span class="tag">dbt</span>
+    <span class="tag">Datafold</span>
+    <span class="tag">Buildkite</span>
+
+    <span class="tag">Semantic Layers</span>
+    <span class="tag">Data Product</span>
+    <span class="tag">Unity Catalog</span>
+    <span class="tag">Monte Carlo</span>
             </div>
           </div>
         </div>
@@ -717,24 +704,24 @@
       <h2>Node.js Community</h2>
       <p class="kicker">A selection of communities and events I've supported or been involved with over the years.</p>
       <div class="logos">
-        <a href="http://nodejs.org" title="Node.js" target="_blank" rel="noopener">
+        <a href="http://nodejs.org" title="Node.js" target="_blank" rel="noopener noreferrer">
           <div class="logo-card"><img src="img/nodejs.png" alt="Node.js" width="64"></div>
         </a>
-        <a href="http://nodeschool.io/international-day" title="Nodeschool International Day" target="_blank" rel="noopener">
+        <a href="http://nodeschool.io/international-day" title="Nodeschool International Day" target="_blank" rel="noopener noreferrer">
           <div class="logo-card"><img src="img/nodeschool-international.png" alt="Nodeschool International" width="64"></div>
         </a>
-        <a href="http://lnug.org" title="London Node User Group" target="_blank" rel="noopener">
+        <a href="http://lnug.org" title="London Node User Group" target="_blank" rel="noopener noreferrer">
           <div class="logo-card">
             <img src="img/lnug.png" alt="London Node User Group" width="64">
           </div>
         </a>
-        <a href="http://london.nodesconf.com" title="NodeConf London" target="_blank" rel="noopener">
+        <a href="http://london.nodesconf.com" title="NodeConf London" target="_blank" rel="noopener noreferrer">
           <div class="logo-card"><img src="img/nodeconf-london.png" alt="NodeConf London" width="64"></div>
         </a>
-        <a href="http://nodeschool.io/london" title="Nodeschool London" target="_blank" rel="noopener">
+        <a href="http://nodeschool.io/london" title="Nodeschool London" target="_blank" rel="noopener noreferrer">
           <div class="logo-card"><img src="img/nodeschool-london.png" alt="Nodeschool London" width="64"></div>
         </a>
-        <a href="http://nottsjs.org" title="NottsJS" target="_blank" rel="noopener">
+        <a href="http://nottsjs.org" title="NottsJS" target="_blank" rel="noopener noreferrer">
           <div class="logo-card"><img src="img/nottsjs.png" alt="NottsJS" width="64"></div>
         </a>
       </div>
@@ -745,33 +732,38 @@
       <div class="grid">
         <div class="col-6">
           <div class="card">
-            <h2>Let’s talk</h2>
+            <h2>Let’s Connect</h2>
             <p>Ready to mature your data organisation and boost team efficiency with AI? Let’s make it real.</p>
             <p><strong>Email:</strong> <a href="mailto:ian@rivershore.co.uk">ian@rivershore.co.uk</a></p>
-            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/iancrowther" target="_blank" rel="noopener">linkedin.com/in/iancrowther</a></p>
-            <p><strong>GitHub:</strong> <a href="https://github.com/iancrowther" target="_blank" rel="noopener">github.com/iancrowther</a></p>
-            <p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/iancrowther" target="_blank" rel="noopener noreferrer">linkedin.com/in/iancrowther</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/iancrowther" target="_blank" rel="noopener noreferrer">github.com/iancrowther</a></p>
+            <!-- <p>
+              <a href="mailto:ian@rivershore.co.uk?subject=Discovery%20Call" class="btn cta-button">
+                Book a Discovery Call
+              </a>
+            </p> -->
+          </div>
+        </div>
+    
+        <div class="col-6">
+          <div class="card">
+            <h2>Book a Call</h2>
+            <p>In 30 minutes we’ll map opportunities to deliver measurable outcomes fast.</p>
+            <ul>
+              <li>Current state &amp; goals</li>
+              <li>Quick wins in the next 30–60 days</li>
+              <!-- <li>Risks, guardrails, and ownership</li> -->
+            </ul>
+            <p style="margin-top: 12px;">
               <a href="mailto:ian@rivershore.co.uk?subject=Discovery%20Call" class="btn cta-button">
                 Book a Discovery Call
               </a>
             </p>
           </div>
         </div>
-
-        <div class="col-6">
-          <div class="card">
-            <h2>My Impact</h2>
-            <p>I partner with organisations as a <strong>fractional, contract, or permanent leader</strong> to:</p>
-            <ul class="impact">
-              <li><strong>Modernise legacy estates</strong> into governed, product-led platforms that are <span class="hl">AI-ready</span>.</li>
-              <li><strong>Scale teams with AI</strong> — leveraging copilots, automation, and guardrails to <span class="hl">ship faster with fewer defects</span>.</li>
-              <li><strong>Boost productivity</strong> through <span class="hl">Data Foundations</span>, <span class="hl">DataOps</span>, and <span class="hl">FinOps</span>, turning efficiency into measurable business outcomes.</li>
-              <li><strong>Operationalise analytics &amp; ML</strong> with semantic layers and governed access so <span class="hl">workflows accelerate securely</span>.</li>
-            </ul>
-          </div>
-        </div>
       </div>
     </section>
+    
   </main>
 
   <footer>
@@ -780,27 +772,8 @@
     </div>
   </footer>
 
-  <!-- Smooth Scroll Polyfill for older browsers -->
+  <!-- Copyright year script -->
   <script>
-    // Check if smooth scroll is not natively supported
-    if (!('scrollBehavior' in document.documentElement.style)) {
-      // Load polyfill only if needed
-      const smoothScrollPolyfill = document.createElement('script');
-      smoothScrollPolyfill.src = 'https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js';
-      smoothScrollPolyfill.integrity = 'sha384-+8/+M0Jg1z8v5vZ4g5z5j5cY1f4h5+2i0dD1p+mJ4f4f5f5f5f5f5f5f5f5f5f';
-      smoothScrollPolyfill.crossOrigin = 'anonymous';
-      smoothScrollPolyfill.onload = function() {
-        // Initialize smooth scroll polyfill
-        if (typeof smoothScrollPolyfill !== 'undefined') {
-          smoothScrollPolyfill.polyfill();
-        }
-      };
-      document.head.appendChild(smoothScrollPolyfill);
-    }
-  </script>
-
-  <script>
-    // Set copyright year
     try {
       const yearElement = document.getElementById('y');
       if (yearElement) {
@@ -809,55 +782,9 @@
     } catch (error) {
       console.error('Error setting copyright year:', error);
     }
-    
-    // Smooth scroll for in-page links with error handling
-    function initSmoothScroll() {
-      try {
-        const links = document.querySelectorAll('a[href^="#"]');
-        
-        links.forEach(anchor => {
-          // Skip if it's a hash link to the same page
-          if (anchor.getAttribute('href') === '#') return;
-          
-          anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            try {
-              const targetId = this.getAttribute('href');
-              const target = document.querySelector(targetId);
-              
-              if (target) {
-                // Use smooth scroll if available, otherwise fall back to instant scroll
-                target.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'start'
-                });
-                
-                // Update URL without adding to history
-                if (history.pushState) {
-                  history.pushState(null, null, targetId);
-                } else {
-                  window.location.hash = targetId;
-                }
-              }
-            } catch (error) {
-              console.error('Error during smooth scroll:', error);
-              // Fallback to default behavior
-              window.location.href = this.href;
-            }
-          });
-        });
-      } catch (error) {
-        console.error('Error initializing smooth scroll:', error);
-      }
-    }
-    
-    // Initialize smooth scroll when DOM is fully loaded
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initSmoothScroll);
-    } else {
-      initSmoothScroll();
-    }
   </script>
+  
+  <!-- Main JavaScript -->
+  <script src="/js/main.js" defer></script>
 </body>
 </html>
